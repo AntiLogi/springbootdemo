@@ -16,7 +16,9 @@ public interface UserMapper {
     User getUserById(Long id);
 
     @Select("select * from user")
-    @Result(property = "nickName", column = "nick_name")
+    @Results({
+            @Result(property = "nickName", column = "nick_name")
+    })
     List<User> getAll();
 
     @Insert("insert into user(userName,passWord,nick_name) values(#{userName},#{passWord},#{nick_name})")
